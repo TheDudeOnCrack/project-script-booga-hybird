@@ -1,0 +1,98 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("NotSupported", "LightTheme")
+
+
+--Supported Games
+local Supported = Window:NewTab("Supported Games")
+local SupportedSection = Supported:NewSection("Supported Games")
+
+
+SupportedSection:NewButton("ButtonText", "ButtonInfo", function()
+    
+end)
+
+--Tab 1
+local Basic = Window:NewTab("Basic Scripts")
+local BasicsSection = Basic:NewSection("Local Scripts")
+
+
+--Local
+BasicsSection:NewSlider("WarlkSpeed", "Changes Walkspeed", 500, 30, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+BasicsSection:NewSlider("JumpPower", "Changes Jump Power", 200, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+
+
+--Visuals
+local Visuals = Window:NewTab("Visuals")
+local VisualsSection = Visuals:NewSection("Visuals")
+
+VisualsSection:NewButton("Remove effects", "Removes effects", function()
+    workspace:FindFirstChildOfClass('Terrain').WaterWaveSize = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterWaveSpeed = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterReflectance = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterTransparency = 0
+	game:GetService("Lighting").GlobalShadows = false
+	game:GetService("Lighting").FogEnd = 9e9
+	settings().Rendering.QualityLevel = 1
+	for i,v in pairs(game:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") then
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+			v.Lifetime = NumberRange.new(0)
+		elseif v:IsA("Explosion") then
+			v.BlastPressure = 1
+			v.BlastRadius = 1
+		end
+	end
+end)
+
+VisualsSection:NewButton("Esp", "Turns on esp", function()
+    local gui = Instance.new("BillboardGui");
+gui.Name = "";
+gui.AlwaysOnTop = true;
+gui.LightInfluence = 0;
+gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+local frame = Instance.new("Frame", gui);
+frame.BackgroundColor3 = Color3.fromRGB(170, 0, 0);
+frame.Size = UDim2.new(1, 0, 1, 0);
+frame.BorderSizePixel = 4;
+frame.BorderColor3 = Color3.fromRGB(0, 0, 0);
+local gi = gui:Clone();
+local body = frame:Clone();
+body.Parent = gi;
+body.BackgroundColor3 = Color3.fromRGB(0, 170, 170);
+
+for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+    if v.Name ~= game:GetService("Players").LocalPlayer.Name and v.Character and v.Character:FindFirstChild("Head") then
+        gui:Clone().Parent = v.Character.Head;
+    end
+end
+end)
+
+local Gui = Window:NewTab("Gui")
+local GuiSection = Gui:NewSection("Gui")
+    GuiSection:NewButton("Owl Hub", "aimbot", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ZinityDrops/OwlHubLink/master/OwlHubBack.lua"))();
+end)
+    GuiSection:NewButton("Hydroxide", "Remote Spy", function()
+    local owner = "Upbolt"
+    local branch = "revision"
+
+        local function webImport(file)
+    return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+ end
+  
+ webImport("init")
+webImport("ui/main")
+     end)
+     GuiSection:NewButton("SimpleSpy", "Remote Spy", function()
+         loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+     end)
