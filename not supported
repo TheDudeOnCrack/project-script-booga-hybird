@@ -7,7 +7,27 @@ local Supported = Window:NewTab("Supported Games")
 local SupportedSection = Supported:NewSection("Supported Games")
 
 
-SupportedSection:NewButton("ButtonText", "ButtonInfo", function()
+--game teleport 1 booga booga hybird
+SupportedSection:NewButton("Booga Booga Hybird", "teleports you to that game", function()
+	local TeleportService = game:GetService("TeleportService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+ 
+local placeId = 5901346231
+
+TeleportService:Teleport(placeId)
+end)
+
+
+--game teleport 2 
+
+SupportedSection:NewButton("", "", function()
+	local TeleportService = game:GetService("TeleportService")
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+	local placeId = 5397084005
+
+	TeleportService:Teleport(placeId)
     
 end)
 
@@ -17,7 +37,7 @@ local BasicsSection = Basic:NewSection("Local Scripts")
 
 
 --Local
-BasicsSection:NewSlider("WarlkSpeed", "Changes Walkspeed", 500, 16, function(s)
+BasicsSection:NewSlider("WarlkSpeed", "Changes Walkspeed", 500, 30, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
