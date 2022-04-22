@@ -7,6 +7,9 @@ local Supported = Window:NewTab("Supported Games")
 local SupportedSection = Supported:NewSection("Supported Games")
 
 
+
+
+
 --game teleport 1 booga booga hybird
 SupportedSection:NewButton("Booga Booga Hybird", "teleports you to that game", function()
 	local TeleportService = game:GetService("TeleportService")
@@ -17,6 +20,29 @@ local placeId = 5901346231
 
 TeleportService:Teleport(placeId)
 end)
+
+
+--game 2
+SupportedSection:NewButton("game 2", "teleports you to the game", (function)
+    local TeleportServoce= game:GetService("TeleportService")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Players =game:GetService("Players")
+
+    local PlaceId = 0
+
+    TeleportService:Teleport(placeId)
+end)
+
+--game 3
+SupportedSection:NewButton("game 2", "teleports you to the game", (function)
+    local TeleportServoce= game:GetService("TeleportService")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Players =game:GetService("Players")
+    
+    local PlaceId = 0
+    
+    TeleportService:Teleport(placeId)
+    end)
 
 
 --game teleport 2 
@@ -30,6 +56,11 @@ SupportedSection:NewButton("", "", function()
 	TeleportService:Teleport(placeId)
     
 end)
+
+
+
+
+
 
 --Tab 1
 local Basic = Window:NewTab("Basic Scripts")
