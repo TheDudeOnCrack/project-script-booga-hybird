@@ -34,7 +34,7 @@ SupportedSection:NewButton("game 2", "teleports you to the game", (function)
 end)
 
 --game 3
-SupportedSection:NewButton("game 2", "teleports you to the game", (function)
+SupportedSection:NewButton("game 3", "teleports you to the game", (function)
     local TeleportServoce= game:GetService("TeleportService")
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Players =game:GetService("Players")
@@ -47,14 +47,13 @@ SupportedSection:NewButton("game 2", "teleports you to the game", (function)
 
 --game teleport 2 
 
-SupportedSection:NewButton("", "", function()
+SupportedSection:NewButton("game 4", " teleports you to the game", function()
 	local TeleportService = game:GetService("TeleportService")
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-	local placeId = 5397084005
+	local placeId = 0
 
 	TeleportService:Teleport(placeId)
-    
 end)
 
 
